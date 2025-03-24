@@ -81,3 +81,12 @@ A **one-page app** with clear, concise sections with smooth scrolling navigation
 Go through the README file and build an MVP of what's there all in two pages which is the page.jsx for the features listed (Header, hero section, about us, etc etc) with the styling of this page in page.css file and apply.jsx for the loan application  (the users important data. eg name, age, phone number, email, job, monthly salary, how much they want to loan, their collateral, person that can back them up and that person's details, etc and add a back to home button on this page as well. add all the necessary styling of this page in apply.css).
 
 for the FAQs, let it be in long rectangular cards and once clicked shos the answer to the question. the card should have the question and a little icon that prompts them to click
+
+
+Additions
+1. Address as allen ikeja
+2. FAQ: no Hidden charges, 
+What are the interest rates? low interest rate
+3. on the form add a signature scanner. and attach 3-6 months statement of bank account
+4. Vota's values: the extra mile, integrity, excellence, 
+5. Add investments as a card on loan services.

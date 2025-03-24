@@ -33,6 +33,10 @@ const Page = () => {
     {
       question: "How long does the approval process take?",
       answer: "Most applications are processed within 24-48 hours."
+    },
+    {
+      question: "What are the interest rates?",
+      answer: "There are low interest rates with no hidden charges."
     }
   ];
 
@@ -100,6 +104,10 @@ const Page = () => {
             <h3>Payday Loans</h3>
             <p>Short-term solutions for immediate needs</p>
           </div>
+          <div className="service-card">
+            <h3>Investments</h3>
+            <p>Invest and save</p>
+          </div>
         </div>
       </section>
 
@@ -162,7 +170,7 @@ const Page = () => {
             </div>
             <div className="info-item">
               <FontAwesomeIcon icon={faLocationDot} />
-              <p>123 Business Street, Allen </p> 
+              <p>Allen, Ikeja </p> 
             </div>
           </div>
           <form className="contact-form">
