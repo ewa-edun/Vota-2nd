@@ -34,11 +34,10 @@ header {
 }
 
 .logo {
-  font-size: 1.7rem;
+  font-size: 2rem;
   font-weight: bold;
   color: var(--primary);
   text-decoration: none;
-   
 }
 
 nav {
@@ -82,7 +81,7 @@ nav a:hover {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  background: url('/vota landing bg.png') center/cover no-repeat;
   color: white;
   padding: 0 1rem;
   position: relative;
@@ -92,10 +91,11 @@ nav a:hover {
 .hero::before {
   content: '';
   position: absolute;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255,255,255,0.1) 10%, transparent 40%);
-  animation: rotate 20s linear infinite;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
 }
 
 @keyframes rotate {
@@ -111,15 +111,19 @@ nav a:hover {
   position: relative;
   z-index: 1;
   animation: fadeInUp 1s ease-out;
+  margin-top: 4rem;
+  margin-left: 4rem;
 }
 
 .hero-content h1 {
-  font-size: 4rem;
+  font-size: 3.5rem;
+  margin-top: 2rem;
+  margin-left: 2rem;
   margin-bottom: 1.5rem;
-  background: linear-gradient(120deg, #ffffff, #e0e0e0);
+  background: linear-gradient(120deg, #848383, #1b1a1a);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  text-shadow: 2px 2px 4px rgba(39, 38, 38, 0.8);
   animation: slideInDown 1s ease-out;
 }
 
@@ -128,6 +132,8 @@ nav a:hover {
   margin-bottom: 2.5rem;
   opacity: 0;
   animation: fadeIn 1s ease-out 0.5s forwards;
+  color: #FFD700;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
 }
 
 .cta-button {
