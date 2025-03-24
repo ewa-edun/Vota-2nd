@@ -17,6 +17,7 @@ const Page = () => {
     { to: "about", label: "About" },
     { to: "services", label: "Services" },
     { to: "process", label: "Process" },
+    { to: "values", label: "Values" },
     { to: "faq", label: "FAQ" },
     { to: "contact", label: "Contact" }
   ];
@@ -32,11 +33,15 @@ const Page = () => {
     },
     {
       question: "How long does the approval process take?",
-      answer: "Most applications are processed within 24-48 hours."
+      answer: "Most applications are processed within 24 hours."
     },
     {
       question: "What are the interest rates?",
       answer: "There are low interest rates with no hidden charges."
+    },
+    {
+      question: "When can I top-up?",
+      answer: "3 to 6 months depending on your loan amount and type."
     }
   ];
 
@@ -129,6 +134,25 @@ const Page = () => {
             <div className="step-number">3</div>
             <h3>Disbursement</h3>
             <p>Receive your funds quickly</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Values Section */ }
+      <section id="values" className="services">
+        <h2>Our Values</h2>
+        <div className="services-grid">
+          <div className="service-card">
+            <h3>Integrity</h3>
+            <p>We are honest</p>
+          </div>
+          <div className="service-card">
+            <h3>Excellence</h3>
+            <p>Support for your business growth</p>
+          </div>
+          <div className="service-card">
+            <h3>The extra mile</h3>
+            <p>Always going beyond for your immediate needs</p>
           </div>
         </div>
       </section>

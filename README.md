@@ -84,9 +84,6 @@ for the FAQs, let it be in long rectangular cards and once clicked shos the answ
 
 
 Additions
-1. Address as allen ikeja
-2. FAQ: no Hidden charges, 
-What are the interest rates? low interest rate
+
 3. on the form add a signature scanner. and attach 3-6 months statement of bank account
 4. Vota's values: the extra mile, integrity, excellence, 
-5. Add investments as a card on loan services.
