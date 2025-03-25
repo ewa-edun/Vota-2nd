@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import emailjs from '@emailjs/browser';
 import './Apply.css';
 
 const Apply = () => {
@@ -34,6 +35,8 @@ const Apply = () => {
     }
   });
 
+  const [submitStatus, setSubmitStatus] = useState('');
+
   const handleChange = (section, field, value) => {
     setFormData(prev => ({
       ...prev,
@@ -44,10 +47,65 @@ const Apply = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
+    setSubmitStatus('sending');
+
+    // Format the data for email
+    const emailParams = {
+      to_email: 'talk2vota@gmail.com',
+      from_name: formData.personalInfo.name,
+      from_email: formData.personalInfo.email,
+      message: `
+        Personal Information:
+        Name: ${formData.personalInfo.name}
+        Age: ${formData.personalInfo.age}
+        Phone: ${formData.personalInfo.phone}
+        Email: ${formData.personalInfo.email}
+        Address: ${formData.personalInfo.address}
+
+        Employment Information:
+        Occupation: ${formData.employmentInfo.occupation}
+        Employer: ${formData.employmentInfo.employer}
+        Monthly Salary: ${formData.employmentInfo.monthlySalary}
+        Years Employed: ${formData.employmentInfo.yearsEmployed}
+
+        Loan Information:
+        Amount: ${formData.loanInfo.amount}
+        Purpose: ${formData.loanInfo.purpose}
+        Term: ${formData.loanInfo.term}
+        Collateral Type: ${formData.loanInfo.collateralType}
+        Collateral Value: ${formData.loanInfo.collateralValue}
+
+        Guarantor Information:
+        Name: ${formData.guarantorInfo.name}
+        Relationship: ${formData.guarantorInfo.relationship}
+        Phone: ${formData.guarantorInfo.phone}
+        Email: ${formData.guarantorInfo.email}
+        Address: ${formData.guarantorInfo.address}
+        Occupation: ${formData.guarantorInfo.occupation}
+      `
+    };
+
+    try {
+      await emailjs.send(
+        'YOUR_SERVICE_ID', // You'll need to replace these with your EmailJS credentials
+        'YOUR_TEMPLATE_ID',
+        emailParams,
+        'YOUR_PUBLIC_KEY'
+      );
+      setSubmitStatus('success');
+      // Reset form
+      setFormData({
+        personalInfo: { name: '', age: '', phone: '', email: '', address: '' },
+        employmentInfo: { occupation: '', employer: '', monthlySalary: '', yearsEmployed: '' },
+        loanInfo: { amount: '', purpose: '', term: '', collateralType: '', collateralValue: '' },
+        guarantorInfo: { name: '', relationship: '', phone: '', email: '', address: '', occupation: '' }
+      });
+    } catch (error) {
+      setSubmitStatus('error');
+      console.error('Error:', error);
+    }
   };
 
   return (
@@ -276,7 +334,20 @@ const Apply = () => {
             </div>
           </section>
 
-          <button type="submit" className="submit-button">Submit Application</button>
+          <button type="submit" className="submit-button" disabled={submitStatus === 'sending'}>
+            {submitStatus === 'sending' ? 'Submitting...' : 'Submit Application'}
+          </button>
+          
+          {submitStatus === 'success' && (
+            <div className="success-message">
+              Application submitted successfully! We'll contact you soon.
+            </div>
+          )}
+          {submitStatus === 'error' && (
+            <div className="error-message">
+              Failed to submit application. Please try again or contact us directly.
+            </div>
+          )}
         </form>
       </div>
     </div>

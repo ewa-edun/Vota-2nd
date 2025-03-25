@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes, faChevronDown, faPhone, faEnvelope, faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import emailjs from '@emailjs/browser';
 import './Page.css';
 
 const Page = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeFaq, setActiveFaq] = useState(null);
+  const [contactStatus, setContactStatus] = useState('');
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const toggleFaq = (index) => setActiveFaq(activeFaq === index ? null : index);
@@ -44,6 +46,25 @@ const Page = () => {
       answer: "3 to 6 months depending on your loan amount and type."
     }
   ];
+
+  const handleContactSubmit = async (e) => {
+    e.preventDefault();
+    setContactStatus('sending');
+
+    try {
+      await emailjs.sendForm(
+        'YOUR_SERVICE_ID', // You'll need to replace these with your EmailJS credentials
+        'YOUR_TEMPLATE_ID',
+        e.target,
+        'YOUR_PUBLIC_KEY'
+      );
+      setContactStatus('success');
+      e.target.reset();
+    } catch (error) {
+      setContactStatus('error');
+      console.error('Error:', error);
+    }
+  };
 
   return (
     <div className="page">
@@ -111,7 +132,7 @@ const Page = () => {
           </div>
           <div className="service-card">
             <h3>Investments</h3>
-            <p>Invest and save</p>
+            <p>Secure investment options with competitive returns</p>
           </div>
         </div>
       </section>
@@ -138,21 +159,21 @@ const Page = () => {
         </div>
       </section>
 
-      {/* Our Values Section */ }
+      {/* Values Section */}
       <section id="values" className="services">
         <h2>Our Values</h2>
         <div className="services-grid">
           <div className="service-card">
             <h3>Integrity</h3>
-            <p>We are honest</p>
+            <p>Building trust through honest and transparent practices</p>
           </div>
           <div className="service-card">
             <h3>Excellence</h3>
-            <p>Support for your business growth</p>
+            <p>Delivering outstanding service in everything we do</p>
           </div>
           <div className="service-card">
-            <h3>The extra mile</h3>
-            <p>Always going beyond for your immediate needs</p>
+            <h3>The Extra Mile</h3>
+            <p>Going beyond expectations to ensure your success</p>
           </div>
         </div>
       </section>
@@ -197,11 +218,15 @@ const Page = () => {
               <p>Allen, Ikeja </p> 
             </div>
           </div>
-          <form className="contact-form">
-            <input type="text" placeholder="Name" required />
-            <input type="email" placeholder="Email" required />
-            <textarea placeholder="Message" required></textarea>
-            <button type="submit">Send Message</button>
+          <form className="contact-form" onSubmit={handleContactSubmit}>
+            <input type="text" name="user_name" placeholder="Name" required />
+            <input type="email" name="user_email" placeholder="Email" required />
+            <textarea name="message" placeholder="Message" required></textarea>
+            <button type="submit" disabled={contactStatus === 'sending'}>
+              {contactStatus === 'sending' ? 'Sending...' : 'Send Message'}
+            </button>
+            {contactStatus === 'success' && <p className="success-message">Message sent successfully!</p>}
+            {contactStatus === 'error' && <p className="error-message">Failed to send message. Please try again.</p>}
           </form>
         </div>
       </section>

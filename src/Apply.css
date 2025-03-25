@@ -104,6 +104,24 @@
   background: var(--primary-hover);
 }
 
+.success-message {
+  color: #00a651;
+  background: #e6f4ea;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.error-message {
+  color: #d32f2f;
+  background: #fde7e7;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-top: 1rem;
+  text-align: center;
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .apply-page {

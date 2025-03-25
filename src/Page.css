@@ -76,17 +76,20 @@ nav a:hover {
 
 /* Hero Section */
 .hero {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   background: url('/vota landing bg.png') center/cover no-repeat;
   color: white;
-  padding: 0 1rem;
+  padding: 2rem 1rem;
   position: relative;
   overflow: hidden;
 }
+
+  /*  */
+
 
 .hero::before {
   content: '';
@@ -95,34 +98,33 @@ nav a:hover {
   height: 100%;
   top: 0;
   left: 0;
-
 }
 
 @keyframes rotate {
-  from {
-    transform: rotate(0deg) scale(1);
+   from {
+     transform: rotate(0deg) scale(1);
+   }
+   to {
+     transform: rotate(360deg) scale(1.2);
+    }
   }
-  to {
-    transform: rotate(360deg) scale(1.2);
-  }
-}
 
 .hero-content {
   position: relative;
   z-index: 1;
   animation: fadeInUp 1s ease-out;
-  margin-top: 4rem;
-  margin-left: 4rem;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .hero-content h1 {
   font-size: 3.5rem;
-  margin-top: 2rem;
-  margin-left: 2rem;
   margin-bottom: 1.5rem;
   background: linear-gradient(120deg, #848383, #1b1a1a);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+ -webkit-text-fill-color: transparent;
   text-shadow: 2px 2px 4px rgba(39, 38, 38, 0.8);
   animation: slideInDown 1s ease-out;
 }
@@ -273,6 +275,7 @@ nav a:hover {
 /* Section Styles */
 section {
   padding: 5rem 5%;
+  position: relative;
 }
 
 h2 {
@@ -281,14 +284,46 @@ h2 {
   color: var(--text);
 }
 
-/* Services Section */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
+/* About Section */
+#about {
+  background: linear-gradient(135deg, #f6f9fc 0%, #edf1f7 100%);
 }
 
+/* Services Section */
+#services {
+  background: linear-gradient(135deg, #ffffff 0%, #f0f4f8 100%);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+   gap: 2rem;
+}
+
+/* Process Section */
+#process {
+  background: linear-gradient(135deg, #edf1f7 0%, #e2e8f0 100%);
+}
+
+/* Values Section */
+#values {
+  background: linear-gradient(135deg, #f0f4f8 0%, #e5eaf2 100%);
+}
+
+/* FAQ Section */
+#faq {
+  background: linear-gradient(135deg, #e2e8f0 0%, #dbe4ed 100%);
+}
+
+/* Contact Section */
+#contact {
+  background: linear-gradient(135deg, #f6f9fc 0%, #edf1f7 100%);
+}
+
+/* Update service cards for better contrast */
 .service-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
   padding: 2rem;
   background: white;
   border-radius: 10px;
@@ -464,16 +499,31 @@ footer {
     left: 0;
   }
 
+  .hero {
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    }
+
+  .hero-content {
+    padding: 0 1rem;
+    margin-top: 4rem; /* Add space for the fixed header */
+  }
+
   .hero-content h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
+    margin: 0 0 1rem 0;
+    background: linear-gradient(120deg, #ffffff, #e0e0e0);
+    -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
   }
 
   .hero-content p {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    margin-bottom: 2rem;
   }
 
   .cta-button {
-    padding: 1rem 2rem;
+    padding: 0.8rem 2rem;
     font-size: 1rem;
   }
 
@@ -481,4 +531,22 @@ footer {
     flex-direction: column;
     align-items: center;
   }
+}
+
+.success-message {
+  color: #00a651;
+  background: #e6f4ea;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.error-message {
+  color: #d32f2f;
+  background: #fde7e7;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-top: 1rem;
+  text-align: center;
 }
