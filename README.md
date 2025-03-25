@@ -84,5 +84,16 @@ for the FAQs, let it be in long rectangular cards and once clicked shos the answ
 
 
 Additions
-1. for the emailjs, add another template for the form.
-3. on the form add a signature scanner. and attach 3-6 months statement of bank account
+1. Loan application form stuff remaining to be added:
+bvn
+other sourcs of income
+amount of loan in words
+montly repayment of loan amount
+outstanding loan with other organization *specify
+
+
+guarantor section
+almost everything the same as personal and employment sections.
+
+
+

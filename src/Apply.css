@@ -31,8 +31,8 @@
 
 .apply-container ul {
   list-style-type: "⩥ "; 
+  padding: 1rem;
 }
-
 
 .apply-container h1 {
   text-align: center;
@@ -128,7 +128,105 @@
   text-align: center;
 }
 
-/* Mobile Responsive */
+.oath-text {
+  grid-column: 1 / -1;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+.oath-text p {
+  line-height: 1.8;
+  color: #333;
+  text-align: justify;
+}
+
+.documents-section {
+  grid-column: 1 / -1;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+.documents-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.document-upload {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 2px dashed #ddd;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.document-upload:hover {
+  border-color: var(--primary);
+}
+
+.document-upload label {
+  display: block;
+  cursor: pointer;
+  padding: 1rem;
+}
+
+.document-upload input[type="file"] {
+  display: none;
+}
+
+.upload-icon {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.file-name {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.signature-pad {
+  width: 100%;
+  height: 200px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  margin-top: 1rem;
+  cursor: crosshair;
+}
+
+.signature-controls {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.signature-controls button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.clear-button {
+  background: #f8f9fa;
+  color: #666;
+}
+
+.save-button {
+  background: var(--primary);
+  color: white;
+}
+
 @media (max-width: 768px) {
   .apply-page {
     padding: 1rem;
