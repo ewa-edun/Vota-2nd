@@ -124,6 +124,7 @@ const Apply = () => {
                 <label>Full Name</label>
                 <input
                   type="text"
+                  name="name"
                   required
                   value={formData.personalInfo.name}
                   onChange={(e) => handleChange('personalInfo', 'name', e.target.value)}
@@ -151,6 +152,7 @@ const Apply = () => {
                 <label>Email</label>
                 <input
                   type="email"
+                  name="email"
                   required
                   value={formData.personalInfo.email}
                   onChange={(e) => handleChange('personalInfo', 'email', e.target.value)}

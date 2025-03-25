@@ -53,7 +53,7 @@ const Page = () => {
 
     try {
       await emailjs.sendForm(
-        'default_service', // You'll need to replace these with your EmailJS credentials
+        'default_service', 
         'template_6q35cdg',
         e.target,
         'YXoZm3iH-rpbriSEF'
@@ -219,8 +219,8 @@ const Page = () => {
             </div>
           </div>
           <form className="contact-form" onSubmit={handleContactSubmit}>
-            <input type="text" name="user_name" placeholder="Name" required />
-            <input type="email" name="user_email" placeholder="Email" required />
+            <input type="text" name="name" placeholder="Name" required />
+            <input type="email" name="email" placeholder="Email" required />
             <textarea name="message" placeholder="Message" required></textarea>
             <button type="submit" disabled={contactStatus === 'sending'}>
               {contactStatus === 'sending' ? 'Sending...' : 'Send Message'}
