@@ -89,10 +89,10 @@ const Apply = () => {
 
     try {
       await emailjs.send(
-        'YOUR_SERVICE_ID', // You'll need to replace these with your EmailJS credentials
-        'YOUR_TEMPLATE_ID',
+        'default_service', // You'll need to replace these with your EmailJS credentials
+        'template_dhdtzlo',
         emailParams,
-        'YOUR_PUBLIC_KEY'
+        'YXoZm3iH-rpbriSEF'
       );
       setSubmitStatus('success');
       // Reset form
@@ -191,7 +191,7 @@ const Apply = () => {
                 />
               </div>
               <div className="form-group">
-                <label>Monthly Salary</label>
+                <label>Monthly Salary (₦)</label>
                 <input
                   type="number"
                   required
@@ -216,7 +216,7 @@ const Apply = () => {
             <h2>Loan Information</h2>
             <div className="form-grid">
               <div className="form-group">
-                <label>Loan Amount</label>
+                <label>Loan Amount (₦)</label>
                 <input
                   type="number"
                   required
@@ -253,7 +253,7 @@ const Apply = () => {
                 </select>
               </div>
               <div className="form-group">
-                <label>Collateral Type</label>
+                <label>Collateral Type </label>
                 <input
                   type="text"
                   required
@@ -262,7 +262,7 @@ const Apply = () => {
                 />
               </div>
               <div className="form-group">
-                <label>Collateral Value</label>
+                <label>Collateral Value (₦)</label>
                 <input
                   type="number"
                   required

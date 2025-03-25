@@ -84,6 +84,5 @@ for the FAQs, let it be in long rectangular cards and once clicked shos the answ
 
 
 Additions
-
+1. for the emailjs, add another template for the form.
 3. on the form add a signature scanner. and attach 3-6 months statement of bank account
-4. Vota's values: the extra mile, integrity, excellence, 

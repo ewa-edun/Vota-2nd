@@ -53,10 +53,10 @@ const Page = () => {
 
     try {
       await emailjs.sendForm(
-        'YOUR_SERVICE_ID', // You'll need to replace these with your EmailJS credentials
-        'YOUR_TEMPLATE_ID',
+        'default_service', // You'll need to replace these with your EmailJS credentials
+        'template_6q35cdg',
         e.target,
-        'YOUR_PUBLIC_KEY'
+        'YXoZm3iH-rpbriSEF'
       );
       setContactStatus('success');
       e.target.reset();
