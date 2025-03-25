@@ -113,7 +113,27 @@ const Apply = () => {
       <Link to="/" className="back-button">← Back to Home</Link>
       
       <div className="apply-container">
-        <h1>Loan Application</h1>
+        <h1>Loan Rules</h1>
+        <ul>
+          <li>Duly filled Loan request form.</li>
+          <li>Duly completed 1 guarantor's form.</li>
+          <li>Bank Statement for the last 4 months.</li>
+          <li>Photocopy of valid Guarantor's Identity card (Duly signed).</li>
+          <li>Photocopy of a valid applicant's employer identity card.</li>
+          <li>Post-dated cheque for the repayment of principal and other accrued interest written in favor of Vota Investment Ltd.</li>
+          <li>Interest Rate: 5%</li>
+          <li>All expenses incurred by VOTA INVESTMENT LTD. for legal, perfection, and recovery in case of default that may arise from this loan shall be borne by the applicant.</li>
+          <li>Advance payment of administrative fee (₦2,000) or 1% of principal, whichever is greater.</li>
+          <li>We do not encourage cash transactions and we do not encourage rollovers.</li>
+          <li>Please be informed that where you do not want your cheque to be presented, kindly make an equivalent of cash available 24 hours prior to the due date of presenting your cheque.</li>
+          <li>A returned cheque shall attract a fine of ₦2,500 only.</li> <br></br>
+        </ul>
+        <h3>If the above conditions are acceptable to you, the applicant, kindly scan your signature below before submitting.</h3>
+      </div>
+
+
+      <div className="apply-container">
+        <h1>Loan Application Form</h1>
         
         <form onSubmit={handleSubmit}>
           {/* Personal Information */}
