@@ -6,15 +6,12 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     emptyOutDir: true,
-    assetsDir: 'assets',
-    rollupOptions: {
-      output: {
-        manualChunks: undefined
-      }
-    }
+    assetsDir: 'assets'
   },
   server: {
     host: true,
     strictPort: true
-  }
+  },
+  // Add this base configuration for Vercel
+  base: '/'
 })
