@@ -8,32 +8,56 @@ import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
 const Apply = () => {
   const [formData, setFormData] = useState({
     personalInfo: {
-      name: '',
+      surname: '',
+      firstName: '',
+      otherNames: '',
       age: '',
       phone: '',
       email: '',
-      address: ''
+      address: '',
+      dateOfBirth: '',
+      maritalStatus: '',
+      numberOfChildren: ''
     },
     employmentInfo: {
       occupation: '',
       employer: '',
       monthlySalary: '',
-      yearsEmployed: ''
+      yearsEmployed: '',
+      bvn: '',
+      officePhone: '',
+      officeAddress: '',
+      source: '',
+      years: '',
+      othermonthlySalary: ''
     },
     loanInfo: {
       amount: '',
+      amountInWords: '',
       purpose: '',
       term: '',
+      monthlyRepayment: '',
+      accountNumber: '',
+      bankName: '',
       collateralType: '',
-      collateralValue: ''
+      collateralValue: '',
+      outstandingLoans: ''
     },
     guarantorInfo: {
-      name: '',
+      fullName: '',
       relationship: '',
       phone: '',
       email: '',
-      address: '',
-      occupation: ''
+      maritalStatus: '',
+      numberOfChildren: '',
+      homeAddress: '',
+      occupation: '',
+      monthlySalary: '',
+      yearsEmployed: '',
+      officeAddress: '',
+      source: '',
+      years: '',
+      othermonthlySalary: ''
     }
   });
 
@@ -94,37 +118,68 @@ const Apply = () => {
     setSubmitStatus('sending');
 
     const emailParams = {
-      to_email: 'talk2vota@gmail.com',
-      from_name: formData.personalInfo.name,
+      to_email: 'contactus@vota.ng',
+      from_name: `${formData.personalInfo.surname} ${formData.personalInfo.firstName}`,
       from_email: formData.personalInfo.email,
       message: `
         Personal Information:
-        Name: ${formData.personalInfo.name}
+        Full Name: ${formData.personalInfo.surname} ${formData.personalInfo.firstName} ${formData.personalInfo.otherNames}
         Age: ${formData.personalInfo.age}
         Phone: ${formData.personalInfo.phone}
         Email: ${formData.personalInfo.email}
-        Address: ${formData.personalInfo.address}
+        Home Address: ${formData.personalInfo.address}
+        Date of Birth: ${formData.personalInfo.dateOfBirth}
+        Marital Status: ${formData.personalInfo.maritalStatus}
+        Number of Children: ${formData.personalInfo.numberOfChildren}
 
         Employment Information:
         Occupation: ${formData.employmentInfo.occupation}
         Employer: ${formData.employmentInfo.employer}
-        Monthly Salary: ${formData.employmentInfo.monthlySalary}
+        Monthly Salary: ₦${formData.employmentInfo.monthlySalary}
         Years Employed: ${formData.employmentInfo.yearsEmployed}
+        BVN: ${formData.employmentInfo.bvn}
+        Office Phone: ${formData.employmentInfo.officePhone}
+        Office Address: ${formData.employmentInfo.officeAddress}
+        Source: ${formData.employmentInfo.source}
+        Years at Source: ${formData.employmentInfo.years}
+        Monthly Income: ₦${formData.employmentInfo.othermonthlySalary}
 
         Loan Information:
-        Amount: ${formData.loanInfo.amount}
+        Amount: ₦${formData.loanInfo.amount}
+        Amount in Words: ${formData.loanInfo.amountInWords}
         Purpose: ${formData.loanInfo.purpose}
-        Term: ${formData.loanInfo.term}
+        Term: ${formData.loanInfo.term} months
+        Monthly Repayment: ₦${formData.loanInfo.monthlyRepayment}
+        Account Number: ${formData.loanInfo.accountNumber}
+        Bank Name: ${formData.loanInfo.bankName}
         Collateral Type: ${formData.loanInfo.collateralType}
-        Collateral Value: ${formData.loanInfo.collateralValue}
+        Collateral Value: ₦${formData.loanInfo.collateralValue}
+        Outstanding Loans: ${formData.loanInfo.outstandingLoans}
 
         Guarantor Information:
-        Name: ${formData.guarantorInfo.name}
+        Full Name: ${formData.guarantorInfo.fullName}
         Relationship: ${formData.guarantorInfo.relationship}
         Phone: ${formData.guarantorInfo.phone}
         Email: ${formData.guarantorInfo.email}
-        Address: ${formData.guarantorInfo.address}
+        Marital Status: ${formData.guarantorInfo.maritalStatus}
+        Number of Children: ${formData.guarantorInfo.numberOfChildren}
+        Home Address: ${formData.guarantorInfo.homeAddress}
         Occupation: ${formData.guarantorInfo.occupation}
+        Monthly Salary: ₦${formData.guarantorInfo.monthlySalary}
+        Years Employed: ${formData.guarantorInfo.yearsEmployed}
+        Office Address: ${formData.guarantorInfo.officeAddress}
+        Source: ${formData.guarantorInfo.source}
+        Years at Source: ${formData.guarantorInfo.years}
+        Monthly Income: ₦${formData.guarantorInfo.othermonthlySalary}
+
+        Uploaded Documents:
+        Applicant Bank Statements: ${fileNames.applicantBankStatements.join(', ')}
+        Applicant ID: ${fileNames.applicantId}
+        Guarantor Bank Statements: ${fileNames.guarantorBankStatements.join(', ')}
+        Guarantor ID: ${fileNames.guarantorId}
+        Signatures: 
+        - Applicant: ${fileNames.applicantSignature}
+        - Guarantor: ${fileNames.guarantorSignature}
       `
     };
 
@@ -194,30 +249,30 @@ const Apply = () => {
                 <label>Surname</label>
                 <input
                   type="text"
-                  name="name"
+                  name="surname"
                   required
-                  value={formData.personalInfo.name}
-                  onChange={(e) => handleChange('personalInfo', 'name', e.target.value)}
+                  value={formData.personalInfo.surname}
+                  onChange={(e) => handleChange('personalInfo', 'surname', e.target.value)}
                 />
               </div>
               <div className="form-group">
                 <label>First Name</label>
                 <input
                   type="text"
-                  name="name"
+                  name="firstName"
                   required
-                  value={formData.personalInfo.name}
-                  onChange={(e) => handleChange('personalInfo', 'name', e.target.value)}
+                  value={formData.personalInfo.firstName}
+                  onChange={(e) => handleChange('personalInfo', 'firstName', e.target.value)}
                 />
               </div>
               <div className="form-group">
                 <label>Other Name(s)</label>
                 <input
                   type="text"
-                  name="name"
+                  name="otherNames"
                   required
-                  value={formData.personalInfo.name}
-                  onChange={(e) => handleChange('personalInfo', 'name', e.target.value)}
+                  value={formData.personalInfo.otherNames}
+                  onChange={(e) => handleChange('personalInfo', 'otherNames', e.target.value)}
                 />
               </div>
               <div className="form-group">
@@ -262,8 +317,8 @@ const Apply = () => {
                 <input
                   type="date"
                   required
-                  value={formData.personalInfo.name}
-                  onChange={(e) => handleChange('personalInfo', 'birthday', e.target.value)}
+                  value={formData.personalInfo.dateOfBirth}
+                  onChange={(e) => handleChange('personalInfo', 'dateOfBirth', e.target.value)}
                 />
               </div>
               <div className="form-group">
@@ -271,8 +326,8 @@ const Apply = () => {
                 <input
                   type="text"
                   required
-                  value={formData.personalInfo.name}
-                  onChange={(e) => handleChange('personalInfo', 'maritalstatus', e.target.value)}
+                  value={formData.personalInfo.maritalStatus}
+                  onChange={(e) => handleChange('personalInfo', 'maritalStatus', e.target.value)}
                 />
               </div>
               <div className="form-group">
@@ -280,8 +335,8 @@ const Apply = () => {
                 <input
                   type="number"
                   required
-                  value={formData.personalInfo.name}
-                  onChange={(e) => handleChange('personalInfo', 'offspring', e.target.value)}
+                  value={formData.personalInfo.numberOfChildren}
+                  onChange={(e) => handleChange('personalInfo', 'numberOfChildren', e.target.value)}
                 />
               </div>
             </div>
@@ -332,16 +387,16 @@ const Apply = () => {
                 <input
                   type="number"
                   required
-                  value={formData.employmentInfo.yearsEmployed}
-                  onChange={(e) => handleChange('employmentInfo', 'yearsEmployed', e.target.value)}
+                  value={formData.employmentInfo.bvn}
+                  onChange={(e) => handleChange('employmentInfo', 'bvn', e.target.value)}
                 />
               </div>
               <div className="form-group">
                 <label>Office Phone Number (if applicable)</label>
                 <input
                   type="tel"
-                  value={formData.personalInfo.phone}
-                  onChange={(e) => handleChange('employmentInfo', 'phone', e.target.value)}
+                  value={formData.employmentInfo.officePhone}
+                  onChange={(e) => handleChange('employmentInfo', 'officePhone', e.target.value)}
                 />
               </div>
               <div className="form-group full-width">
@@ -349,32 +404,32 @@ const Apply = () => {
                 <input
                   type="text"
                   required
-                  value={formData.personalInfo.address}
-                  onChange={(e) => handleChange('employmentInfo', 'address', e.target.value)}
+                  value={formData.employmentInfo.officeAddress}
+                  onChange={(e) => handleChange('employmentInfo', 'officeAddress', e.target.value)}
                 />
               </div>
               <div className="form-group">
                 <label>Other Sources of Income</label>
                 <input
                   type="text"
-                  value={formData.employmentInfo.occupation}
-                  onChange={(e) => handleChange('employmentInfo', 'occupation', e.target.value)}
+                  value={formData.employmentInfo.source}
+                  onChange={(e) => handleChange('employmentInfo', 'source', e.target.value)}
                 />
               </div>
               <div className="form-group">
                 <label>Years at other source</label>
                 <input
                   type="number"
-                  value={formData.employmentInfo.yearsEmployed}
-                  onChange={(e) => handleChange('employmentInfo', 'yearsEmployed', e.target.value)}
+                  value={formData.employmentInfo.years}
+                  onChange={(e) => handleChange('employmentInfo','years', e.target.value)}
                 />
               </div>
               <div className="form-group">
                 <label>Monthly Salary from other source(₦)</label>
                 <input
                   type="number"
-                  value={formData.employmentInfo.monthlySalary}
-                  onChange={(e) => handleChange('employmentInfo', 'monthlySalary', e.target.value)}
+                  value={formData.employmentInfo.othermonthlySalary}
+                  onChange={(e) => handleChange('employmentInfo', 'othermonthlySalary', e.target.value)}
                 />
               </div>
             </div>
@@ -391,6 +446,15 @@ const Apply = () => {
                   required
                   value={formData.loanInfo.amount}
                   onChange={(e) => handleChange('loanInfo', 'amount', e.target.value)}
+                />
+              </div>
+              <div className="form-group">
+                <label>Loan Amount in full words</label>
+                <input
+                  type="text"
+                  required
+                  value={formData.loanInfo.amountInWords}
+                  onChange={(e) => handleChange('loanInfo', 'amountInWords', e.target.value)}
                 />
               </div>
               <div className="form-group">
@@ -416,22 +480,13 @@ const Apply = () => {
                   onChange={(e) => handleChange('loanInfo', 'term', e.target.value)}
                 />
               </div>
-              <div className="form-group full-width">
-                <label>Loan Amount in full words</label>
-                <input
-                  type="text"
-                  required
-                  value={formData.personalInfo.address}
-                  onChange={(e) => handleChange('loanInfo', 'amount', e.target.value)}
-                />
-              </div>
               <div className="form-group">
                 <label>Monthly repayment amount (₦)</label>
                 <input
                   type="number"
                   required
-                  value={formData.loanInfo.collateralType}
-                  onChange={(e) => handleChange('loanInfo', 'amount', e.target.value)}
+                  value={formData.loanInfo.monthlyRepayment}
+                  onChange={(e) => handleChange('loanInfo', 'monthlyRepayment', e.target.value)}
                 />
               </div>
               <div className="form-group">
@@ -439,8 +494,8 @@ const Apply = () => {
                 <input
                   type="number"
                   required
-                  value={formData.loanInfo.collateralType}
-                  onChange={(e) => handleChange('loanInfo', 'account', e.target.value)}
+                  value={formData.loanInfo.accountNumber}
+                  onChange={(e) => handleChange('loanInfo', 'accountNumber', e.target.value)}
                 />
               </div>
               <div className="form-group">
@@ -448,8 +503,8 @@ const Apply = () => {
                 <input
                   type="text"
                   required
-                  value={formData.loanInfo.collateralType}
-                  onChange={(e) => handleChange('loanInfo', 'bankname', e.target.value)}
+                  value={formData.loanInfo.bankName}
+                  onChange={(e) => handleChange('loanInfo', 'bankName', e.target.value)}
                 />
               </div>
               <div className="form-group">
@@ -476,8 +531,8 @@ const Apply = () => {
                   type="text"
                   required
                   placeholder='Specify Properly'
-                  value={formData.loanInfo.collateralType}
-                  onChange={(e) => handleChange('loanInfo', 'outstandingloan', e.target.value)}
+                  value={formData.loanInfo.outstandingLoans}
+                  onChange={(e) => handleChange('loanInfo', 'outstandingLoans', e.target.value)}
                 />
               </div>
             </div>
@@ -492,8 +547,8 @@ const Apply = () => {
                 <input
                   type="text"
                   required
-                  value={formData.guarantorInfo.name}
-                  onChange={(e) => handleChange('guarantorInfo', 'name', e.target.value)}
+                  value={formData.guarantorInfo.fullName}
+                  onChange={(e) => handleChange('guarantorInfo', 'fullName', e.target.value)}
                 />
               </div>
               <div className="form-group">
@@ -528,8 +583,8 @@ const Apply = () => {
                 <input
                   type="text"
                   required
-                  value={formData.personalInfo.name}
-                  onChange={(e) => handleChange('personalInfo', 'maritalstatus', e.target.value)}
+                  value={formData.guarantorInfo.maritalStatus}
+                  onChange={(e) => handleChange('guarantorInfo', 'maritalStatus', e.target.value)}
                 />
               </div>
               <div className="form-group">
@@ -537,8 +592,8 @@ const Apply = () => {
                 <input
                   type="number"
                   required
-                  value={formData.personalInfo.name}
-                  onChange={(e) => handleChange('personalInfo', 'offspring', e.target.value)}
+                  value={formData.guarantorInfo.numberOfChildren}
+                  onChange={(e) => handleChange('guarantorInfo', 'numberOfChildren', e.target.value)}
                 />
               </div>
               <div className="form-group full-width">
@@ -546,8 +601,8 @@ const Apply = () => {
                 <input
                   type="text"
                   required
-                  value={formData.guarantorInfo.address}
-                  onChange={(e) => handleChange('guarantorInfo', 'address', e.target.value)}
+                  value={formData.guarantorInfo.homeAddress}
+                  onChange={(e) => handleChange('guarantorInfo', 'homeAddress', e.target.value)}
                 />
               </div>
               <div className="form-group">
@@ -564,8 +619,8 @@ const Apply = () => {
                 <input
                   type="number"
                   required
-                  value={formData.employmentInfo.monthlySalary}
-                  onChange={(e) => handleChange('employmentInfo', 'monthlySalary', e.target.value)}
+                  value={formData.guarantorInfo.monthlySalary}
+                  onChange={(e) => handleChange('guarantorInfo', 'monthlySalary', e.target.value)}
                 />
               </div>
               <div className="form-group">
@@ -573,8 +628,8 @@ const Apply = () => {
                 <input
                   type="number"
                   required
-                  value={formData.employmentInfo.yearsEmployed}
-                  onChange={(e) => handleChange('employmentInfo', 'yearsEmployed', e.target.value)}
+                  value={formData.guarantorInfo.yearsEmployed}
+                  onChange={(e) => handleChange('guarantorInfo', 'yearsEmployed', e.target.value)}
                 />
               </div>
               <div className="form-group full-width">
@@ -582,32 +637,32 @@ const Apply = () => {
                 <input
                   type="text"
                   required
-                  value={formData.guarantorInfo.address}
-                  onChange={(e) => handleChange('guarantorInfo', 'address', e.target.value)}
+                  value={formData.guarantorInfo.officeAddress}
+                  onChange={(e) => handleChange('guarantorInfo', 'officeAddress', e.target.value)}
                 />
               </div>
               <div className="form-group">
                 <label>Other Sources of Income</label>
                 <input
                   type="text"
-                  value={formData.employmentInfo.occupation}
-                  onChange={(e) => handleChange('employmentInfo', 'occupation', e.target.value)}
+                  value={formData.guarantorInfo.source}
+                  onChange={(e) => handleChange('guarantorInfo', 'source', e.target.value)}
                 />
               </div>
               <div className="form-group">
                 <label>Years at other source</label>
                 <input
                   type="number"
-                  value={formData.employmentInfo.yearsEmployed}
-                  onChange={(e) => handleChange('employmentInfo', 'yearsEmployed', e.target.value)}
+                  value={formData.guarantorInfo.years}
+                  onChange={(e) => handleChange('guarantorInfo', 'years', e.target.value)}
                 />
               </div>
               <div className="form-group">
                 <label>Monthly Salary from other source(₦)</label>
                 <input
                   type="number"
-                  value={formData.employmentInfo.monthlySalary}
-                  onChange={(e) => handleChange('employmentInfo', 'monthlySalary', e.target.value)}
+                  value={formData.guarantorInfo.othermonthlySalary}
+                  onChange={(e) => handleChange('guarantorInfo', 'othermonthlySalary', e.target.value)}
                 />
               </div>
 

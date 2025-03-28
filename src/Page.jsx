@@ -211,7 +211,7 @@ const Page = () => {
             </div>
             <div className="info-item">
               <FontAwesomeIcon icon={faEnvelope} />
-              <p>talk2vota@gmail.com</p>
+              <p>contactus@vota.ng</p>
             </div>
             <div className="info-item">
               <FontAwesomeIcon icon={faLocationDot} />

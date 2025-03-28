@@ -84,16 +84,10 @@ for the FAQs, let it be in long rectangular cards and once clicked shos the answ
 
 
 Additions
-1. Loan application form stuff remaining to be added:
-bvn
-other sourcs of income
-amount of loan in words
-montly repayment of loan amount
-outstanding loan with other organization *specify
-
-
-guarantor section
-almost everything the same as personal and employment sections.
+1. Loan application form stuff to be fixed:
+ 
+ - when I input years, it minus 1 from the number. will cause inaccurate info and problems.
+ - GOING TO REQUIRED DOCS LATER ON.
 
 
 
