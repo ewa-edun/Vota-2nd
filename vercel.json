@@ -1,9 +1,21 @@
-{
-    "headers": [
+
+  {
+    "version": 2,
+    "builds": [
       {
-        "source": "/(.*).jsx",
-        "headers": [{ "key": "Content-Type", "value": "application/javascript" }]
+        "src": "vite.config.js",
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "dist"
+        }
+      }
+    ],
+    "routes": [
+      {
+        "src": "/assets/(.*)",
+        "headers": {
+          "Content-Type": "application/javascript"
+        }
       }
     ]
   }
-  
