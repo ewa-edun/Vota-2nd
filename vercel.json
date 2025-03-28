@@ -1,9 +1,19 @@
 {
-    "headers": [
-      {
-        "source": "/(.*).js",
-        "headers": [{ "key": "Content-Type", "value": "application/javascript" }]
-      }
-    ]
-  }
-  
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/javascript"
+        }
+      ]
+    }
+  ],
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite"
+}
