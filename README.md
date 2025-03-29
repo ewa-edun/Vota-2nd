@@ -86,8 +86,10 @@ for the FAQs, let it be in long rectangular cards and once clicked shos the answ
 Additions
 1. Loan application form stuff to be fixed:
  
- - when I input years, it minus 1 from the number. will cause inaccurate info and problems.
- - GOING TO REQUIRED DOCS LATER ON.
+ - User Name, Contact info email, phone, Loan amount and details.
+ - After successful submission, the message should say we'd respond with the full form within 24 hours.
+
+2. Email is not landing. check all the config stuff.
 
 
 

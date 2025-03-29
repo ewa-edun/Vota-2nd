@@ -53,10 +53,10 @@ const Page = () => {
 
     try {
       await emailjs.sendForm(
-        'default_service', 
+        import.meta.env.VITE_EMAILJS_SERVICE_ID, 
         'template_6q35cdg',
         e.target,
-        'YXoZm3iH-rpbriSEF'
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
       );
       setContactStatus('success');
       e.target.reset();

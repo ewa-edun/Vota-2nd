@@ -500,7 +500,8 @@ footer {
   }
 
   .hero {
-    background: linear-gradient(45deg, var(--primary), var(--secondary));
+  background: url('/vota phone bg.png') center/cover no-repeat; 
+    /* background: linear-gradient(45deg, var(--primary), var(--secondary)); */
     }
 
   .hero-content {
@@ -511,10 +512,10 @@ footer {
   .hero-content h1 {
     font-size: 2rem;
     margin: 0 0 1rem 0;
-    background: linear-gradient(120deg, #ffffff, #e0e0e0);
+    background: linear-gradient(120deg, #1b1a1a, #848383);
     -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  text-shadow: 2px 2px 4px rgba(39, 38, 38, 0.8);
   }
 
   .hero-content p {
